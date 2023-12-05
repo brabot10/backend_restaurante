@@ -8,7 +8,7 @@ import { UpdateDetalleDto } from './dto/update-detalle.dto';
 import { Detalle } from './entities/detalle.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { PedidoEntity } from 'src/pedido/entities/pedido.entity';
+
 
 
 @Injectable()
@@ -20,7 +20,7 @@ export class DetallesService {
   async create(createDetalleDto: CreateDetalleDto): Promise<Detalle> {
     const existe = await this.detalleRepository.findOneBy({
       direccionEstado: createDetalleDto.direccionEstado.trim(),
-      pedidos: { id: createDetalleDto.idPedido },
+      idPedido: createDetalleDto.idPedido,
     });
 
     if (existe) {
@@ -34,18 +34,20 @@ export class DetallesService {
       puntuacion: createDetalleDto.puntuacion.trim(),
       credibilidad: createDetalleDto.credibilidad.trim(),
       amabilidad: createDetalleDto.amabilidad.trim(),
-      pedidos: { id: createDetalleDto.idPedido },
+      idPedido: createDetalleDto.idPedido,
     });
   }
 
   async findAll(): Promise<Detalle[]> {
-    return this.detalleRepository.find({ relations: ['pedidos'] });
+    return this.detalleRepository.find({ 
+      relations: { pedidos : true }, //referencia al entity
+    });
   }
 
   async findOne(id: number): Promise<Detalle> {
     const detalle = await this.detalleRepository.findOne({ 
       where: { id },
-      relations: ['pedidos'],
+      relations: { pedidos : true },
     });
 
     if (!detalle) {
@@ -61,7 +63,6 @@ export class DetallesService {
       throw new NotFoundException(`El detalle ${id} no existe.`);
     }
     const detalleUpdate = Object.assign(detalle, updateDetalleDto);
-    detalleUpdate.pedidos = { id: updateDetalleDto.idPedido } as PedidoEntity;
     return this.detalleRepository.save(detalleUpdate);
   }
 

@@ -16,6 +16,8 @@ export class Pago {
     @Column({ type: 'int', nullable: false })
     total: number;
 
+    @Column({ name: 'id_repartidor' })
+    idRepartidor: number;
 
     @ManyToOne(() => RepartidorEntity, (repartidor) => repartidor.pagos)
     @JoinColumn({ name: 'id_repartidor', referencedColumnName: 'id' })

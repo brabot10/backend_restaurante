@@ -10,6 +10,12 @@ export class Valoracion {
     @Column({ type: 'varchar', length: 50, nullable: false })
     descripcion: string;
 
+    @Column({ name: 'id_platillo' })
+    idPlatillo: number;
+
+    @Column({ name: 'id_repartidor' })
+    idRepartidor: number;
+
     @ManyToOne(() => PlatilloEntity, (platillos) => platillos.valoraciones)
     @JoinColumn({ name: 'id_platillo', referencedColumnName: 'id' })
     platillos: PlatilloEntity;

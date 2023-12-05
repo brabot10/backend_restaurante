@@ -14,7 +14,6 @@ import { UpdateValoracionDto } from './dto/update-valoracion.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
-
 @ApiTags('Valoraciones')
 @Controller('valoraciones')
 @ApiBearerAuth()

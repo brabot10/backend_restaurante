@@ -8,7 +8,6 @@ import { UpdatePagoDto } from './dto/update-pago.dto';
 import { Pago } from './entities/pago.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { RepartidorEntity } from 'src/repartidor/entities/repartidor.entity';
 
 @Injectable()
 export class PagoService {
@@ -20,7 +19,9 @@ export class PagoService {
   async create(createPagoDto: CreatePagoDto): Promise<Pago> {
     const existePago = await this.pagoRepository.findOneBy({
       mes: createPagoDto.mes.trim(),
-      repartidor: { id: createPagoDto.idRepartidor },
+      tiempoExtra: createPagoDto.tiempoExtra.trim(),
+      total: createPagoDto.total,
+      idRepartidor: createPagoDto.idRepartidor,
     });
 
     if (existePago) {
@@ -30,19 +31,19 @@ export class PagoService {
       mes: createPagoDto.mes.trim(),
       tiempoExtra: createPagoDto.tiempoExtra.trim(),
       total: createPagoDto.total,
-      repartidor: { id: createPagoDto.idRepartidor },
+      idRepartidor: createPagoDto.idRepartidor,
     });
   }
   async findAll(): Promise<Pago[]> {
     return this.pagoRepository.find({
-      relations: ['repartidor'],
+      relations: { repartidor: true },
     });
   }
 
   async findOne(id: number): Promise<Pago> {
     const pago = await this.pagoRepository.findOne({
       where: { id },
-      relations: ['repartidor'],
+      relations: { repartidor: true },
     });
     if (!pago) {
       throw new NotFoundException(`El pago no existe ${id}`);
@@ -59,7 +60,6 @@ export class PagoService {
       throw new NotFoundException(`El pago no existe ${id}`);
     }
     const pagoUpdate = Object.assign(pago, updatePagoDto);
-    pagoUpdate.repartidor = { id: updatePagoDto.idRepartidor } as RepartidorEntity;
     return this.pagoRepository.save(pagoUpdate);
   }
 

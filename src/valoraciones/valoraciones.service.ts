@@ -8,8 +8,6 @@ import { UpdateValoracionDto } from './dto/update-valoracion.dto';
 import { Valoracion } from './entities/valoracion.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PlatilloEntity } from 'src/platillos/entities/platillo.entity';
-import { RepartidorEntity } from 'src/repartidor/entities/repartidor.entity';
 
 @Injectable()
 export class ValoracionesService {
@@ -21,7 +19,8 @@ export class ValoracionesService {
   async create(createValoracionDto: CreateValoracionDto): Promise<Valoracion> {
     const existeValoracion = await this.valoracionRepository.findOneBy({
       descripcion: createValoracionDto.descripcion,
-      platillos: { id: createValoracionDto.idPlatillo },
+      idPlatillo: createValoracionDto.idPlatillo,
+      idRepartidor: createValoracionDto.idRepartidor,
     });
 
     if (existeValoracion) {
@@ -30,20 +29,20 @@ export class ValoracionesService {
 
     return this.valoracionRepository.save({
       descripcion: createValoracionDto.descripcion.trim(),
-      platillos: { id: createValoracionDto.idPlatillo },
-      repartidor: { id: createValoracionDto.idRepartidor },
+      idPlatillo: createValoracionDto.idPlatillo,
+      idRepartidor: createValoracionDto.idRepartidor,
     });
   }
   async findAll(): Promise<Valoracion[]> {
     return this.valoracionRepository.find({
-      relations: ['platillos', 'repartidor'],
+      relations: { platillos: true, repartidor: true },
     });
   }
 
   async findOne(id: number): Promise<Valoracion> {
     const valoracion = await this.valoracionRepository.findOne({
       where: { id },
-      relations: ['platillos', 'repartidor'],
+      relations: { platillos: true, repartidor: true },
     });
     if (!valoracion) {
       throw new NotFoundException(`La valoración no existe ${id}`);
@@ -60,8 +59,6 @@ export class ValoracionesService {
       throw new NotFoundException(`La valoración no existe ${id}`);
     }
     const valoracionUpdate = Object.assign(valoracion, updateValoracionDto);
-    valoracionUpdate.platillos = { id: updateValoracionDto.idPlatillo } as PlatilloEntity;
-    valoracionUpdate.repartidor = { id: updateValoracionDto.idRepartidor } as RepartidorEntity;
     return this.valoracionRepository.save(valoracionUpdate);
   }
 

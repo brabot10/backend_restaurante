@@ -21,9 +21,11 @@ export class PedidoEntity {
   @Column({ type: 'int', nullable: false })
   cantidad:number;
 
-
   @CreateDateColumn({ name: 'fecha_pedido' })
   fechaPedido: Date;
+
+  @Column({ name: 'id_repartidor' })
+  idRepartidor: number;
 
   @ManyToOne(() => RepartidorEntity, (repartidor) => repartidor.pedidos)
   @JoinColumn({ name: 'id_repartidor', referencedColumnName: 'id' })

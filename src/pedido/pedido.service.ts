@@ -8,7 +8,6 @@ import { UpdatePedidoDto } from './dto/update-pedido.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PedidoEntity } from './entities/pedido.entity';
 import { Repository } from 'typeorm';
-import { RepartidorEntity } from 'src/repartidor/entities/repartidor.entity';
 
 @Injectable()
 export class PedidoService {
@@ -18,8 +17,8 @@ export class PedidoService {
   ) {}
   async create(createPedidoDto: CreatePedidoDto): Promise<PedidoEntity> {
     const existe = await this.pedidoRepository.findOneBy({
+      idRepartidor: createPedidoDto.idRepartidor,
       nombreProducto: createPedidoDto.nombreProducto.trim(),
-      repartidor: { id: createPedidoDto.idRepartidor },
     });
 
     if (existe) {
@@ -31,18 +30,20 @@ export class PedidoService {
       direccion: createPedidoDto.direccion.trim(),
       nombreC: createPedidoDto.nombreC.trim(),
       cantidad: createPedidoDto.cantidad,
-      repartidor: { id: createPedidoDto.idRepartidor },
+      idRepartidor: createPedidoDto.idRepartidor,
     });
   }
 
   async findAll(): Promise<PedidoEntity[]> {
-    return this.pedidoRepository.find({ relations: ['repartidor'] });
+    return this.pedidoRepository.find({ 
+      relations: { repartidor: true },
+    });
   }
 
   async findOne(id: number): Promise<PedidoEntity> {
     const pedido = await this.pedidoRepository.findOne({ 
       where: { id },
-      relations: ['repartidor'],
+      relations:{ repartidor: true },
     });
 
     if (!pedido) {
@@ -57,7 +58,7 @@ export class PedidoService {
       throw new NotFoundException(`El pedido ${id} no existe.`);
     }
     const pedidoUpdate = Object.assign(pedido, updatePedidoDto);
-    pedidoUpdate.repartidor = { id: updatePedidoDto.idRepartidor } as RepartidorEntity;
+    //pedidoUpdate.repartidor = { id: updatePedidoDto.idRepartidor } as RepartidorEntity;
     return this.pedidoRepository.save(pedidoUpdate);
   }
 

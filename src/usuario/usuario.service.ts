@@ -1,4 +1,9 @@
-import { ConflictException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -12,15 +17,15 @@ export class UsuarioService {
     private usuarioRepository: Repository<UsuarioEntity>,
   ) {}
 
-  async create(
-    createUsuarioDto: CreateUsuarioDto,
-  ): Promise<UsuarioEntity> {
+  async create(createUsuarioDto: CreateUsuarioDto): Promise<UsuarioEntity> {
     const existe = await this.usuarioRepository.findOneBy({
       usuario: createUsuarioDto.usuario.trim(),
     });
 
     if (existe) {
-      throw new ConflictException(`El usuario ${createUsuarioDto.usuario} ya existe.`);
+      throw new ConflictException(
+        `El usuario ${createUsuarioDto.usuario} ya existe.`,
+      );
     }
 
     const usuario: UsuarioEntity = new UsuarioEntity();
@@ -37,7 +42,7 @@ export class UsuarioService {
   }
 
   async findOne(id: number): Promise<UsuarioEntity> {
-    const usuario = await this.usuarioRepository.findOneBy({id});
+    const usuario = await this.usuarioRepository.findOneBy({ id });
 
     if (!usuario) {
       throw new NotFoundException(`El usuario ${id} no existe.`);
@@ -47,7 +52,7 @@ export class UsuarioService {
   }
 
   async update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
-    const usuario = await this.usuarioRepository.findOneBy({id});
+    const usuario = await this.usuarioRepository.findOneBy({ id });
 
     if (!usuario) {
       throw new NotFoundException(`El usuario ${id} no existe.`);
@@ -58,7 +63,7 @@ export class UsuarioService {
   }
 
   async remove(id: number) {
-    const existe = await this.usuarioRepository.findOneBy({id});
+    const existe = await this.usuarioRepository.findOneBy({ id });
 
     if (!existe) {
       throw new NotFoundException(`El usuario ${id} no existe.`);
@@ -73,7 +78,7 @@ export class UsuarioService {
     });
 
     if (!usuarioOk) throw new NotFoundException('Usuario inexistente');
-    
+
     if (!(await usuarioOk?.validatePassword(clave))) {
       throw new UnauthorizedException('Clave incorrecta');
     }

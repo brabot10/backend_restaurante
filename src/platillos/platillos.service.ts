@@ -8,7 +8,6 @@ import { UpdatePlatilloDto } from './dto/update-platillo.dto';
 import { PlatilloEntity } from './entities/platillo.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { PedidoEntity } from 'src/pedido/entities/pedido.entity';
 
 @Injectable()
 export class PlatillosService {
@@ -20,7 +19,7 @@ export class PlatillosService {
     const existe = await this.platilloRepository.findOneBy({
       nombre: createPlatilloDto.nombre.trim(),
       precio: createPlatilloDto.precio,
-      pedidos: { id: createPlatilloDto.idPedido },
+      idPedido: createPlatilloDto.idPedido,
     });
 
     if (existe) {
@@ -32,18 +31,20 @@ export class PlatillosService {
     return this.platilloRepository.save({
       nombre: createPlatilloDto.nombre.trim(),
       precio: createPlatilloDto.precio,
-      pedidos: { id: createPlatilloDto.idPedido },
+      idPedido: createPlatilloDto.idPedido,
     });
   }
 
   async findAll(): Promise<PlatilloEntity[]> {
-    return this.platilloRepository.find({ relations: ['pedidos'] });
+    return this.platilloRepository.find({ 
+      relations: { pedidos : true }, 
+    });
   }
 
   async findOne(id: number): Promise<PlatilloEntity> {
     const platillo = await this.platilloRepository.findOne({ 
       where: { id },
-      relations: ['pedidos'],
+      relations: { pedidos : true },
     });
 
     if (!platillo) {
@@ -59,7 +60,6 @@ export class PlatillosService {
       throw new NotFoundException(`El platillo ${id} no existe.`);
     }
     const platilloUpdate = Object.assign(platillo, updatePlatilloDto);
-    platilloUpdate.pedidos = { id: updatePlatilloDto.idPedido } as PedidoEntity;
     return this.platilloRepository.save(platilloUpdate);
   }
 
