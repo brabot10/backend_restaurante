@@ -28,7 +28,14 @@ export class CreateDetalleDto {
     readonly amabilidad: string;
 
     @ApiProperty()
+    @IsDefined({ message: 'El campo Cliente debe estar definido' })
+    @IsNumber({}, { message: 'El campo Cliente debe ser de tipo numérico' })
+    readonly idCliente: number;
+    
+    @ApiProperty()
     @IsDefined({ message: 'El campo Pedido debe estar definido' })
     @IsNumber({}, { message: 'El campo Pedido debe ser de tipo numérico' })
     readonly idPedido: number;
+
+
 }

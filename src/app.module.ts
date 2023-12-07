@@ -8,10 +8,10 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { PedidoModule } from './pedido/pedido.module';
 import { PlatillosModule } from './platillos/platillos.module';
 import { RepartidorModule } from './repartidor/repartidor.module';
-import { ValoracionesModule } from './valoraciones/valoraciones.module';
 import { PagoModule } from './pago/pago.module';
 import { DetallesModule } from './detalles/detalles.module';
-
+import { ClientesModule } from './clientes/clientes.module';
+import { DireccionesModule } from './direcciones/direcciones.module';
 
 @Module({
   imports: [
@@ -23,9 +23,9 @@ import { DetallesModule } from './detalles/detalles.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [__filename+ '**/*.entity.ts'],
+      entities: [__dirname + '**/*.entity.ts'],
       synchronize: true,
-      autoLoadEntities: true
+      autoLoadEntities: true,
     }),
 
     AuthModule,
@@ -34,8 +34,9 @@ import { DetallesModule } from './detalles/detalles.module';
     DetallesModule,
     PagoModule,
     PlatillosModule,
-    ValoracionesModule,
     UsuarioModule,
+    ClientesModule,
+    DireccionesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

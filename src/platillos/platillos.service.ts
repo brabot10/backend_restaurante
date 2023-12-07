@@ -18,8 +18,10 @@ export class PlatillosService {
   async create(createPlatilloDto: CreatePlatilloDto): Promise<PlatilloEntity> {
     const existe = await this.platilloRepository.findOneBy({
       nombre: createPlatilloDto.nombre.trim(),
+      urlPlatillo: createPlatilloDto.urlPlatillo.trim(),
       precio: createPlatilloDto.precio,
-      idPedido: createPlatilloDto.idPedido,
+      tiempoPraparacion: createPlatilloDto.tiempoPreparacion,
+      disponibilidad: createPlatilloDto.disponibilidad,
     });
 
     if (existe) {
@@ -30,21 +32,21 @@ export class PlatillosService {
 
     return this.platilloRepository.save({
       nombre: createPlatilloDto.nombre.trim(),
+      urlPlatillo: createPlatilloDto.urlPlatillo.trim(),
       precio: createPlatilloDto.precio,
-      idPedido: createPlatilloDto.idPedido,
+      tiempoPraparacion: createPlatilloDto.tiempoPreparacion,
+      disponibilidad: createPlatilloDto.disponibilidad,
     });
   }
 
   async findAll(): Promise<PlatilloEntity[]> {
     return this.platilloRepository.find({ 
-      relations: { pedidos : true }, 
     });
   }
 
   async findOne(id: number): Promise<PlatilloEntity> {
     const platillo = await this.platilloRepository.findOne({ 
       where: { id },
-      relations: { pedidos : true },
     });
 
     if (!platillo) {

@@ -9,8 +9,6 @@ import { Detalle } from './entities/detalle.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-
-
 @Injectable()
 export class DetallesService {
   constructor(
@@ -20,7 +18,11 @@ export class DetallesService {
   async create(createDetalleDto: CreateDetalleDto): Promise<Detalle> {
     const existe = await this.detalleRepository.findOneBy({
       direccionEstado: createDetalleDto.direccionEstado.trim(),
+      puntuacion: createDetalleDto.puntuacion.trim(),
+      credibilidad: createDetalleDto.credibilidad.trim(),
+      amabilidad: createDetalleDto.amabilidad.trim(),
       idPedido: createDetalleDto.idPedido,
+      idCliente: createDetalleDto.idCliente,
     });
 
     if (existe) {
@@ -35,19 +37,20 @@ export class DetallesService {
       credibilidad: createDetalleDto.credibilidad.trim(),
       amabilidad: createDetalleDto.amabilidad.trim(),
       idPedido: createDetalleDto.idPedido,
+      idCliente: createDetalleDto.idCliente,
     });
   }
 
   async findAll(): Promise<Detalle[]> {
-    return this.detalleRepository.find({ 
-      relations: { pedidos : true }, //referencia al entity
+    return this.detalleRepository.find({
+      relations: { pedidos: true, clientes:true }, //referencia al entity
     });
   }
 
   async findOne(id: number): Promise<Detalle> {
-    const detalle = await this.detalleRepository.findOne({ 
+    const detalle = await this.detalleRepository.findOne({
       where: { id },
-      relations: { pedidos : true },
+      relations: { pedidos: true, clientes:true },
     });
 
     if (!detalle) {
@@ -57,7 +60,10 @@ export class DetallesService {
     return detalle;
   }
 
-  async update(id: number, updateDetalleDto: UpdateDetalleDto): Promise<Detalle> {
+  async update(
+    id: number,
+    updateDetalleDto: UpdateDetalleDto,
+  ): Promise<Detalle> {
     const detalle = await this.detalleRepository.findOneBy({ id });
     if (!detalle) {
       throw new NotFoundException(`El detalle ${id} no existe.`);

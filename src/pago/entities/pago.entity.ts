@@ -1,25 +1,47 @@
-import { RepartidorEntity } from "src/repartidor/entities/repartidor.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { RepartidorEntity } from 'src/repartidor/entities/repartidor.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@Entity ('pagos')
+@Entity('pagos')
 export class Pago {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({ type: 'int', nullable: false })
+  sueldo: number;
+
+  @Column({ type: 'int', nullable: false })
+  dia: number;
+
+  @Column({ type: 'int', nullable: false })
+  diaExtra: number;
+
+  @Column({ type: 'int', nullable: false })
+  descuento: number;
   
-    @Column({ type: 'varchar', length: 50, nullable: false })
-    mes: string;
+  @Column({ type: 'int', nullable: false })
+  total: number;
 
-    @Column({ type: 'varchar', length: 250, nullable: false })
-    tiempoExtra: string;
+  @Column({ type: 'varchar', length: 250, nullable: false })
+  fechaCancelado: string;
 
+  @CreateDateColumn({ name: 'fecha_creacion' })
+  fechaCreacion: Date;
 
-    @Column({ type: 'int', nullable: false })
-    total: number;
+  @UpdateDateColumn({ name: 'fecha_modificacion' })
+  fechaModificacion: Date;
 
-    @Column({ name: 'id_repartidor' })
-    idRepartidor: number;
+  @Column({ name: 'id_repartidor' })
+  idRepartidor: number;
 
-    @ManyToOne(() => RepartidorEntity, (repartidor) => repartidor.pagos)
-    @JoinColumn({ name: 'id_repartidor', referencedColumnName: 'id' })
-    repartidor: RepartidorEntity;
+  @ManyToOne(() => RepartidorEntity, repartidor => repartidor.pagos)
+  @JoinColumn({ name: 'id_repartidor', referencedColumnName: 'id' })
+  repartidor: RepartidorEntity;
 }

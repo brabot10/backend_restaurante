@@ -17,8 +17,13 @@ export class PedidoService {
   ) {}
   async create(createPedidoDto: CreatePedidoDto): Promise<PedidoEntity> {
     const existe = await this.pedidoRepository.findOneBy({
+      cantidad: createPedidoDto.cantidad,
+      total: createPedidoDto.total,
+      fechaPedido: createPedidoDto.fechaPedido,
       idRepartidor: createPedidoDto.idRepartidor,
-      nombreProducto: createPedidoDto.nombreProducto.trim(),
+      idCliente: createPedidoDto.idCliente,
+      idPlatillo: createPedidoDto.idPlatillo,
+      idDireccion: createPedidoDto.idDireccion,
     });
 
     if (existe) {
@@ -26,24 +31,26 @@ export class PedidoService {
     }
 
     return this.pedidoRepository.save({
-      nombreProducto: createPedidoDto.nombreProducto.trim(),
-      direccion: createPedidoDto.direccion.trim(),
-      nombreC: createPedidoDto.nombreC.trim(),
       cantidad: createPedidoDto.cantidad,
+      total: createPedidoDto.total,
+      fechaPedido: createPedidoDto.fechaPedido,
       idRepartidor: createPedidoDto.idRepartidor,
+      idCliente: createPedidoDto.idCliente,
+      idPlatillo: createPedidoDto.idPlatillo,
+      idDireccion: createPedidoDto.idDireccion,
     });
   }
 
   async findAll(): Promise<PedidoEntity[]> {
-    return this.pedidoRepository.find({ 
-      relations: { repartidor: true },
+    return this.pedidoRepository.find({
+      relations: { repartidor: true, clientes:true, platillos: true, direcciones:true  },
     });
   }
 
   async findOne(id: number): Promise<PedidoEntity> {
-    const pedido = await this.pedidoRepository.findOne({ 
+    const pedido = await this.pedidoRepository.findOne({
       where: { id },
-      relations:{ repartidor: true },
+      relations: { repartidor: true, clientes:true, platillos: true, direcciones:true },
     });
 
     if (!pedido) {
@@ -52,7 +59,10 @@ export class PedidoService {
     return pedido;
   }
 
-  async update(id: number, updatePedidoDto: UpdatePedidoDto): Promise<PedidoEntity> {
+  async update(
+    id: number,
+    updatePedidoDto: UpdatePedidoDto,
+  ): Promise<PedidoEntity> {
     const pedido = await this.pedidoRepository.findOneBy({ id });
     if (!pedido) {
       throw new NotFoundException(`El pedido ${id} no existe.`);

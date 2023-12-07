@@ -1,28 +1,30 @@
-import { Pago } from "src/pago/entities/pago.entity";
-import { PedidoEntity } from "src/pedido/entities/pedido.entity";
-import { Valoracion } from "src/valoraciones/entities/valoracion.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Pago } from 'src/pago/entities/pago.entity';
+import { PedidoEntity } from 'src/pedido/entities/pedido.entity';
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('repartidor')
 export class RepartidorEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ type: 'varchar', length: 100, nullable: false })
-    nombreR:string;
+  @Column({ type: 'varchar', length: 100, nullable: false })
+  nombreRepartidor: string;
 
-    @Column({ type: 'int', nullable: false })
-    carnet:number;
+  @Column({ type: 'varchar', length: 100, nullable: false })
+  carnetIdentidad: string;
 
-    @Column({ type: 'int', nullable: false })
-    edad:number;
+  @Column({ name: 'fecha_Edad' })
+  fechaEdad: Date;
 
-    @OneToMany(() => PedidoEntity, (pedidos) => pedidos.repartidor)
-    pedidos: PedidoEntity[];
+  @Column({ name: 'fecha_Ingreso' })
+  fechaIngreso: Date;
 
-    @OneToMany(() => Valoracion, (valoraciones) => valoraciones.repartidor)
-    valoraciones: Valoracion[];
+  @CreateDateColumn({ name: 'fecha_creacion' })
+  fechaCreacion: Date;
 
-    @OneToMany(() => Pago, (pagos) => pagos.repartidor)
-    pagos: Pago[];
+  @OneToMany(() => PedidoEntity, pedidos => pedidos.repartidor)
+  pedidos: PedidoEntity[];
+
+  @OneToMany(() => Pago, pagos => pagos.repartidor)
+  pagos: Pago[];
 }

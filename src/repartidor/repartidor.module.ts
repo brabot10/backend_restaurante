@@ -7,6 +7,6 @@ import { RepartidorEntity } from './entities/repartidor.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([RepartidorEntity])],
   controllers: [RepartidorController],
-  providers: [RepartidorService]
+  providers: [RepartidorService],
 })
 export class RepartidorModule {}
