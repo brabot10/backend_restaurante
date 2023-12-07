@@ -35,7 +35,6 @@ export class ClientesService {
       carnetIdentidad: createClienteDto.carnetIdentidad,
       fechaEdad: createClienteDto.fechaEdad,
       celular: createClienteDto.celular,
-
     });
   }
 

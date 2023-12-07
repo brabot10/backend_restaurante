@@ -3,14 +3,15 @@ import { Direccion } from 'src/direcciones/entities/direccion.entity';
 import { PedidoEntity } from 'src/pedido/entities/pedido.entity';
 import {
   Column,
+  CreateDateColumn,
   Entity,
   OneToMany,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 
 @Entity('clientes')
 export class Cliente {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ type: 'varchar', length: 100, nullable: false })
@@ -25,8 +26,8 @@ export class Cliente {
   @Column({ type: 'int', nullable: false })
   celular: number;
 
-  @Column({ name: 'fecha_registro' })
-  fechaRegistro: Date;
+  @CreateDateColumn({ name: 'fecha_creacion' })
+  fechaCreacion: Date;
 
   @OneToMany(() => PedidoEntity, pedidos => pedidos.clientes)
   pedidos: PedidoEntity;

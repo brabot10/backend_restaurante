@@ -9,6 +9,7 @@ import { Pago } from './entities/pago.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
+
 @Injectable()
 export class PagoService {
   constructor(

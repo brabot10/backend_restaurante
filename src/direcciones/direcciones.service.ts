@@ -16,6 +16,7 @@ export class DireccionesService {
     @InjectRepository(Direccion)
     private direccionRepository: Repository<Direccion>,
   ) {}
+  
   async create(CreateDireccionDto: CreateDireccioneDto): Promise<Direccion> {
     const existe = await this.direccionRepository.findOneBy({
       direccion: CreateDireccionDto.direccion.trim(),

@@ -13,7 +13,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('SIS257 - 23/11/2023')
     .setDescription(
-      'Presentacion Final de laboratorio s2_2023\nBryan Pilcolora Mendoza\nDaniela M. Lizondo',
+      'Presentacion Final s2_2023\nBryan Pilcolora Mendoza\nDaniela M. Lizondo',
     )
     .setVersion('1.0')
     .addTag('Por defecto')
