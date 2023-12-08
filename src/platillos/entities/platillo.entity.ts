@@ -21,7 +21,7 @@ export class PlatilloEntity {
   precio: number;
 
   @Column({ type: 'int', nullable: false })
-  tiempoPraparacion: number;
+  tiempoPreparacion: number;
 
   @Column({ type: 'int', nullable: false })
   disponibilidad: number;

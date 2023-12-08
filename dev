@@ -1,0 +1,83 @@
+
+> demo_nestjs@0.0.1 start
+> nest start
+
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +180ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +147ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsuarioModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRepartidorModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPedidoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDetallesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPagoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPlatillosModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mClientesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDireccionesModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:44 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/api} (version: 1):[39m[38;5;3m +69ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api, GET} (version: 1) route[39m[38;5;3m +3ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsuarioController {/api/usuarios} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/usuarios, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/usuarios, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/usuarios/:id, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/usuarios/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/usuarios/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mRepartidorController {/api/repartidor} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/repartidor, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/repartidor, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/repartidor/:id, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/repartidor/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/repartidor/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPedidoController {/api/pedido} (version: 1):[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pedido, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pedido, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pedido/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pedido/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pedido/:id, DELETE} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mDetallesController {/api/detalles} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/detalles, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/detalles, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/detalles/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/detalles/:id, PATCH} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/detalles/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPagoController {/api/pago} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pago, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pago, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pago/:id, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pago/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/pago/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPlatillosController {/api/platillos} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/platillos, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/platillos, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/platillos/:id, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/platillos/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/platillos/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mClientesController {/api/clientes} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/clientes, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/clientes, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/clientes/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/clientes/:id, PATCH} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/clientes/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mDireccionesController {/api/direcciones} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/direcciones, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/direcciones, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/direcciones/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/direcciones/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/direcciones/:id, DELETE} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 29872  - [39m08/12/2023, 00:21:45 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +7ms[39m
+Api corriendo en http://[::1]:3000/apidoc

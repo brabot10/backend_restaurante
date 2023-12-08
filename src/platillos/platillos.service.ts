@@ -20,7 +20,7 @@ export class PlatillosService {
       nombre: createPlatilloDto.nombre.trim(),
       urlPlatillo: createPlatilloDto.urlPlatillo.trim(),
       precio: createPlatilloDto.precio,
-      tiempoPraparacion: createPlatilloDto.tiempoPreparacion,
+      tiempoPreparacion: createPlatilloDto.tiempoPreparacion,
       disponibilidad: createPlatilloDto.disponibilidad,
     });
 
@@ -34,7 +34,7 @@ export class PlatillosService {
       nombre: createPlatilloDto.nombre.trim(),
       urlPlatillo: createPlatilloDto.urlPlatillo.trim(),
       precio: createPlatilloDto.precio,
-      tiempoPraparacion: createPlatilloDto.tiempoPreparacion,
+      tiempoPreparacion: createPlatilloDto.tiempoPreparacion,
       disponibilidad: createPlatilloDto.disponibilidad,
     });
   }
